@@ -1,10 +1,9 @@
-from dataclasses import dataclass
-from numbers import Number
+from pydantic import BaseModel
+from typing import Union
 from enum import Enum
 
 
-@dataclass
-class Input:
+class Input(BaseModel):
     a: bool = None
     b: bool = None
     c: bool = None
@@ -15,21 +14,33 @@ class Input:
     custom_expr_set: int = None
 
 
-class OperationTypes(str, Enum):
+class OperationType(str, Enum):
     sum = '+'
     difference = '-'
     multiplication = '*'
 
 
-@dataclass
-class Operation:
-    type: OperationTypes
+class Operation(BaseModel):
+    type: OperationType
 
     operation_funcs = {
-        OperationTypes.sum: lambda x, y: x + y,
-        OperationTypes.difference: lambda x, y: x - y,
-        OperationTypes.multiplication: lambda x, y: x * y,
+        OperationType.sum: lambda x, y: x + y,
+        OperationType.difference: lambda x, y: x - y,
+        OperationType.multiplication: lambda x, y: x * y,
     }
 
     def get_evaluation_func(self):
         return self.operation_funcs[self.type]
+
+
+class BinaryExpression(BaseModel):
+    x: Union[int, float]
+    y: Union[int, float]
+    operation_type: OperationType
+    
+
+    def evaluate(self) -> float:
+        operation = Operation(type=self.operation_type)
+        func = operation.get_evaluation_func()
+        return func(self.x, self.y)
+
