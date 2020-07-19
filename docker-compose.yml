@@ -1,0 +1,12 @@
+version: "3"
+services:
+    app:
+        build:
+            context: .
+        container_name: therapy_webapp
+        volumes:
+            - ./app:/app
+        working_dir: /app
+        ports:
+            - 9000:8000
+        command: "uvicorn main:app --host 0.0.0.0 --reload"
