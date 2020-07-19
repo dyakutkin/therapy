@@ -46,7 +46,7 @@ class BinaryExpression(BaseModel):
             return operand.evaluate(variables)
         return operand
 
-    def evaluate(self, variables: Dict[Variable, Union[int, bool, float]]) -> float:
+    def evaluate(self, variables: Dict[Variable, Union[int, bool, float]]):
         operation = Operation(type=self.operation_type)
         func = operation.get_evaluation_func()
         return func(

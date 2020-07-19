@@ -1,6 +1,6 @@
 from unittest import TestCase, main
 
-from main import OperationType, Variable, BinaryExpression
+from calc.expressions.expressions import OperationType, Variable, BinaryExpression
 
 
 class TestInput(TestCase):

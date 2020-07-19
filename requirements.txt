@@ -1,1 +1,4 @@
+coverage==5.2
+fastapi==0.59.0
 pydantic==1.6.1
+starlette==0.13.4
