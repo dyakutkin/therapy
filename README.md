@@ -12,7 +12,7 @@
 - `make coverage`
 
 ## Rationale
-In terms of code structure, these solution consists of these main layers:
+In terms of code structure, the solution consists of these main layers:
 - Expressions evaluation (`expressions`) - making sure that we're capable of evaluating any given expression with specified inputs and operation types;
 - Evaluation rules matching (`evaluator`) - working with rule sets. Resolve rules, apply their expressions and evaluate the results;
 - API - expose the evaluation logic as http endpoint.
@@ -24,7 +24,7 @@ Why so?
 - Can be managed by non-programmers if it's necessary;
 - It fits a concept of expressions override/extension nicely.
 
-The other big thing is that there isn't any kind of DBMS or other dedicated data store, as it seems that it will only take some additional time to add it and won't really benefit in the context of the task in any way.
+The other big thing is that there isn't any kind of DBMS or other dedicated data store, as it seems that it will only take some additional time to properly add it here and won't really benefit in the context of the task in any way.
 Substitution expressions data is stored in `./app/dump.json`, and can be tweaked there as well (just don't forget to restart the server).
 
 Obviously, in a real life scenario it should be stored in a dedicated data store.
