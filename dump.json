@@ -1,0 +1,150 @@
+[
+    {
+        "input": {
+            "a": true,
+            "b": true,
+            "c": false,
+            "d": null,
+            "e": null,
+            "f": null,
+            "h": null,
+            "k": null,
+            "custom_expr_set": null
+        },
+        "calculation": {
+            "expression": null,
+            "result_field": "h",
+            "fallback_value": "m"
+        }
+    },
+    {
+        "input": {
+            "a": true,
+            "b": true,
+            "c": true,
+            "d": null,
+            "e": null,
+            "f": null,
+            "h": null,
+            "k": null,
+            "custom_expr_set": null
+        },
+        "calculation": {
+            "expression": null,
+            "result_field": "h",
+            "fallback_value": "p"
+        }
+    },
+    {
+        "input": {
+            "a": false,
+            "b": true,
+            "c": true,
+            "d": null,
+            "e": null,
+            "f": null,
+            "h": null,
+            "k": null,
+            "custom_expr_set": null
+        },
+        "calculation": {
+            "expression": null,
+            "result_field": "h",
+            "fallback_value": "t"
+        }
+    },
+    {
+        "input": {
+            "a": null,
+            "b": null,
+            "c": null,
+            "d": null,
+            "e": null,
+            "f": null,
+            "h": "m",
+            "k": null,
+            "custom_expr_set": null
+        },
+        "calculation": {
+            "expression": {
+                "x": "d",
+                "y": {
+                    "x": "d",
+                    "y": {
+                        "x": "e",
+                        "y": 10,
+                        "operation_type": "/"
+                    },
+                    "operation_type": "*"
+                },
+                "operation_type": "+"
+            },
+            "result_field": "k",
+            "fallback_value": null
+        }
+    },
+    {
+        "input": {
+            "a": null,
+            "b": null,
+            "c": null,
+            "d": null,
+            "e": null,
+            "f": null,
+            "h": "p",
+            "k": null,
+            "custom_expr_set": null
+        },
+        "calculation": {
+            "expression": {
+                "x": "d",
+                "y": {
+                    "x": "d",
+                    "y": {
+                        "x": {
+                            "x": "e",
+                            "y": "f",
+                            "operation_type": "-"
+                        },
+                        "y": 25.5,
+                        "operation_type": "/"
+                    },
+                    "operation_type": "*"
+                },
+                "operation_type": "+"
+            },
+            "result_field": "k",
+            "fallback_value": null
+        }
+    },
+    {
+        "input": {
+            "a": null,
+            "b": null,
+            "c": null,
+            "d": null,
+            "e": null,
+            "f": null,
+            "h": "t",
+            "k": null,
+            "custom_expr_set": null
+        },
+        "calculation": {
+            "expression": {
+                "x": "d",
+                "y": {
+                    "x": "d",
+                    "y": {
+                        "x": "f",
+                        "y": 30,
+                        "operation_type": "/"
+                    },
+                    "operation_type": "*"
+                },
+                "operation_type": "-"
+            },
+            "result_field": "k",
+            "fallback_value": null
+        }
+    }
+]

@@ -36,14 +36,20 @@ class Calculation(BaseModel):
     fallback_value: H = None
 
 
+class Match(BaseModel):
+    input: Input
+    calculation: Calculation
+
+
 class Matcher(BaseModel):
-    mapping: List[Tuple[Input, Calculation]]
+    mapping: List[Match]
 
     def evaluate(self, input: Input):
         results = {}
         current_input = input
 
-        for matched_input, calculation in self.mapping:
+        for match in self.mapping:
+            matched_input, calculation = match.input, match.calculation
             current_input_dict = current_input.dict()
             
             not_matched = any(
@@ -65,4 +71,4 @@ class Matcher(BaseModel):
             current_input = Input(**res)
             results.update(res)
 
-            return results
+        return results

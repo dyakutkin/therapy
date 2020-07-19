@@ -1,22 +1,22 @@
 from unittest import TestCase, main
 
-from calc.calc import Matcher, Input, H, Calculation, ResultField
+from calc.calc import Matcher, Input, H, Calculation, ResultField, Match
 from calc.expressions.expressions import BinaryExpression, Variable, OperationType
 
 
 class TestInput(TestCase):
     def test_t(self):
         mapping = [
-            (
-                Input(a=True, b=True, c=False),
-                Calculation(
+            Match(
+                input=Input(a=True, b=True, c=False),
+                calculation=Calculation(
                     result_field=ResultField.H,
                     fallback_value=H.M,
                 ),
             ),
-            (
-                Input(h=H.M),
-                Calculation(
+            Match(
+                input=Input(h=H.M),
+                calculation=Calculation(
                     expression=BinaryExpression(
                         x=Variable.D,
                         y = BinaryExpression(
