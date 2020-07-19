@@ -1,8 +1,9 @@
 from enum import Enum
-from typing import List, Tuple
+from typing import List
 
 from pydantic import BaseModel
-from calc.expressions.expressions import BinaryExpression, Variable
+
+from therapy.expressions import Expression
 
 
 class H(str, Enum):
@@ -27,28 +28,26 @@ class Input(BaseModel):
     h: H = None
     k: float = None
 
-    custom_expr_set: int = None
-
 
 class Calculation(BaseModel):
-    expression: BinaryExpression = None
+    expression: Expression = None
     result_field: ResultField
-    fallback_value: H = None
+    value: H = None
 
 
-class Match(BaseModel):
+class Rule(BaseModel):
     input: Input
     calculation: Calculation
 
 
-class Matcher(BaseModel):
-    mapping: List[Match]
+class Evaluator(BaseModel):
+    rules: List[Rule]
 
     def evaluate(self, input: Input):
         results = {}
         current_input = input
 
-        for match in self.mapping:
+        for match in self.rules:
             matched_input, calculation = match.input, match.calculation
             current_input_dict = current_input.dict()
             
@@ -64,7 +63,7 @@ class Matcher(BaseModel):
                 continue
 
             if calculation.expression is None:
-                res = {calculation.result_field: calculation.fallback_value}
+                res = {calculation.result_field: calculation.value}
             else:
                 value = calculation.expression.evaluate(variables=input.dict())
                 res = {calculation.result_field: value}

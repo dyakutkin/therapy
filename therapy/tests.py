@@ -1,27 +1,27 @@
 from unittest import TestCase, main
 
-from calc.calc import Matcher, Input, H, Calculation, ResultField, Match
-from calc.expressions.expressions import BinaryExpression, Variable, OperationType
+from therapy.evaluator import Evaluator, Input, H, Calculation, ResultField, Rule
+from therapy.expressions import Expression, Variable, OperationType
 
 
 class TestInput(TestCase):
     def test_t(self):
-        mapping = [
-            Match(
+        rules = [
+            Rule(
                 input=Input(a=True, b=True, c=False),
                 calculation=Calculation(
                     result_field=ResultField.H,
-                    fallback_value=H.M,
+                    value=H.M,
                 ),
             ),
-            Match(
+            Rule(
                 input=Input(h=H.M),
                 calculation=Calculation(
-                    expression=BinaryExpression(
+                    expression=Expression(
                         x=Variable.D,
-                        y = BinaryExpression(
+                        y = Expression(
                             x=Variable.D,
-                            y=BinaryExpression(x=Variable.E, y=10, operation_type=OperationType.division),
+                            y=Expression(x=Variable.E, y=10, operation_type=OperationType.division),
                             operation_type=OperationType.multiplication,
                         ),
                         operation_type=OperationType.sum,
@@ -30,7 +30,7 @@ class TestInput(TestCase):
                 ),
             ),
         ]
-        matcher = Matcher(mapping=mapping)
+        matcher = Evaluator(rules=rules)
         results = matcher.evaluate(Input(h=H.M, d=1.0, e=2))
         self.assertEqual(results[ResultField.K], 1.2)
 

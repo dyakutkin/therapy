@@ -33,9 +33,9 @@ class Operation(BaseModel):
         return self.operation_funcs[self.type]
 
 
-class BinaryExpression(BaseModel):
-    x: Union[int, float, Variable, 'BinaryExpression']
-    y: Union[int, float, Variable, 'BinaryExpression']
+class Expression(BaseModel):
+    x: Union[int, float, Variable, 'Expression']
+    y: Union[int, float, Variable, 'Expression']
     operation_type: OperationType
 
     @classmethod
@@ -54,4 +54,4 @@ class BinaryExpression(BaseModel):
             self.evaluate_operand(self.y, variables)
         )
 
-BinaryExpression.update_forward_refs()
+Expression.update_forward_refs()

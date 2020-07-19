@@ -1,21 +1,12 @@
-import json
-
-from typing import Optional
-
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from calc.calc import Matcher, Input
+from storage import fetch_evaluation_data
+from therapy.evaluator import Evaluator, Input
 
 
+matcher = Evaluator(rules=fetch_evaluation_data())
 app = FastAPI()
-
-def fetch_matcher_data():
-    with open('dump.json', 'r') as fp:
-        return json.loads(fp.read())
-
-matcher_data = fetch_matcher_data()
-matcher = Matcher(mapping=matcher_data)
 
 
 class CalculateRequest(BaseModel):
@@ -25,11 +16,6 @@ class CalculateRequest(BaseModel):
     d: float
     e: int
     f: int
-
-
-class CalculateResponse(BaseModel):
-    h: str
-    k: float
 
 
 @app.post("/calculate/")

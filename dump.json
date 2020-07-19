@@ -8,13 +8,12 @@
             "e": null,
             "f": null,
             "h": null,
-            "k": null,
-            "custom_expr_set": null
+            "k": null
         },
         "calculation": {
             "expression": null,
             "result_field": "h",
-            "fallback_value": "m"
+            "value": "m"
         }
     },
     {
@@ -26,13 +25,12 @@
             "e": null,
             "f": null,
             "h": null,
-            "k": null,
-            "custom_expr_set": null
+            "k": null
         },
         "calculation": {
             "expression": null,
             "result_field": "h",
-            "fallback_value": "p"
+            "value": "p"
         }
     },
     {
@@ -44,13 +42,12 @@
             "e": null,
             "f": null,
             "h": null,
-            "k": null,
-            "custom_expr_set": null
+            "k": null
         },
         "calculation": {
             "expression": null,
             "result_field": "h",
-            "fallback_value": "t"
+            "value": "t"
         }
     },
     {
@@ -62,8 +59,7 @@
             "e": null,
             "f": null,
             "h": "m",
-            "k": null,
-            "custom_expr_set": null
+            "k": null
         },
         "calculation": {
             "expression": {
@@ -80,7 +76,7 @@
                 "operation_type": "+"
             },
             "result_field": "k",
-            "fallback_value": null
+            "value": null
         }
     },
     {
@@ -92,8 +88,7 @@
             "e": null,
             "f": null,
             "h": "p",
-            "k": null,
-            "custom_expr_set": null
+            "k": null
         },
         "calculation": {
             "expression": {
@@ -114,7 +109,7 @@
                 "operation_type": "+"
             },
             "result_field": "k",
-            "fallback_value": null
+            "value": null
         }
     },
     {
@@ -126,8 +121,7 @@
             "e": null,
             "f": null,
             "h": "t",
-            "k": null,
-            "custom_expr_set": null
+            "k": null
         },
         "calculation": {
             "expression": {
@@ -144,7 +138,7 @@
                 "operation_type": "-"
             },
             "result_field": "k",
-            "fallback_value": null
+            "value": null
         }
     }
 ]
