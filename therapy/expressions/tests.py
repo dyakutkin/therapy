@@ -5,7 +5,6 @@ from therapy.expressions import OperationType, Variable, Expression
 
 class TestInput(TestCase):
     test_table = (
-        # Basic binary operators.
         (
             (3, 4, OperationType.multiplication,),
             {},
@@ -26,7 +25,7 @@ class TestInput(TestCase):
             {},
             1.5,
         ),
-        # Nested expressions.
+
         (
             (
                 2,
@@ -45,7 +44,7 @@ class TestInput(TestCase):
             {},
             1
         ),
-        # Expressions with variables.
+
         (
             (
                 Expression(x=Variable.A, y=1, operation_type=OperationType.sum),

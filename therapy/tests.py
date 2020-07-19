@@ -15,6 +15,39 @@ class TestInput(TestCase):
                         value=H.M,
                     ),
                 ),
+            ],
+            Input(a=True, b=True, c=False),
+            {ResultField.H: H.M},
+        ),
+        (
+            [
+                Rule(
+                    input=Input(a=True, b=True, c=False),
+                    calculation=Calculation(
+                        result_field=ResultField.H,
+                        value=H.M,
+                    ),
+                ),
+                Rule(
+                    input=Input(a=True, b=True, c=False),
+                    calculation=Calculation(
+                        result_field=ResultField.H,
+                        value=H.T,
+                    ),
+                ),
+            ],
+            Input(a=True, b=True, c=False),
+            {ResultField.H: H.T},
+        ),
+        (
+            [
+                Rule(
+                    input=Input(a=True, b=True, c=False),
+                    calculation=Calculation(
+                        result_field=ResultField.H,
+                        value=H.M,
+                    ),
+                ),
                 Rule(
                     input=Input(h=H.M),
                     calculation=Calculation(

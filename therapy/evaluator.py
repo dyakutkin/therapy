@@ -47,10 +47,10 @@ class Evaluator(BaseModel):
         rules = {}
 
         for rule in self.rules:
-            key_ = tuple(v for k, v in rule.dict()['input'].items())
+            key_ = tuple(v for v in rule.dict()['input'].values())
             rules[key_] = rule
 
-        return rules
+        return rules.values()
 
 
     def evaluate(self, input: Input):
@@ -59,7 +59,7 @@ class Evaluator(BaseModel):
 
         rules = self.process_rules()
 
-        for match in rules.values():
+        for match in rules:
             matched_input, calculation = match.input, match.calculation
             current_input_dict = current_input.dict()
             
