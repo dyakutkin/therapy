@@ -28,7 +28,7 @@ The other big thing is that there isn't any kind of DBMS or other dedicated data
 Substitution expressions data is stored in `./app/dump.json`, and can be tweaked there as well (just don't forget to restart the server).
 
 Obviously, in a real life scenario it should be stored in a dedicated data store.
-The choice of it would probably needs more context, but right now `MongoDB` (or potentially some other NoSQL solution) seems like a great fit for it, as it's not really expected to see any kind of meaningful relations between the documents, but their structure might vary a lot depending on types and sized of expressions.
+The choice of it would probably need more context, but right now `MongoDB` (or potentially some other NoSQL solution) seems like a great fit for it, as it's not really expected to see any kind of meaningful relations between the documents, but their structure might vary a lot depending on types and sizes of expressions.
 
 Python is picked just because that's what I use day to day.
 FastAPI is simple enough to provide basic http API capabilities without getting in the way.
